@@ -5,6 +5,7 @@ var characters = {
   symbol: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
 };
 
+
 var userInput = [];
 
 var password = "";
@@ -23,52 +24,34 @@ function writePassword() {
 
 function generatePassword() {
   var characterLength = 0
-  while ((characterLength < 8 || characterLength > 128) || Number.isInteger(characterLength) === false) {
+  while (characterLength < 8 || characterLength > 128) {
       characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"));
   }
-
-  characters.alhpa = false
-  characters.num = false
-  characters.symbol = false
-
-  while (!characters.alhpa && !characters.num && !characters.symbol) {
-    characters.alhpa = confirm("Click OK to confirm upper and lower characters");
-    characters.num = confirm("Click OK to confirm numeric characters");
-    characters.symbol = confirm("Click OK to confirm special characters");
+  
+  function generatePrompt() {
+    if (characters.alhpa) {
+      userInput.push(characters.alhpa[Math.floor((Math.random() * 52) + 1)]);
   }
 
-  if (upper) {
-      userInput.push(charString[0]);
+  if (characters.num) {
+      userInput.push(characters.num[Math.floor((Math.random() * 10) + 1)])
   }
 
-  if (lower) {
-      userInput.push(charString[1])
+  if (characters.symbol) {
+      userInput.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
   }
 
-  if (number) {
-      userInput.push(charString[2])
   }
-
-  if (symbol) {
-      userInput.push(charString[3])
-  }
-
-  var password = "";
 
 
   userInput = userInput.join("").split("");
 
-  // You should start your for statement at position 0, not 1
-  // and I guess it should be < than characterLength, not userInput.length
   for (var i = 0; i < characterLength; i++) {
-      // Math.random is a function so you were missing the parenthesis Math.random()
-      // also Math.random() should be times userInput.length
-      // so they should be inside the same parenthesis
       var index = (Math.floor(Math.random() * userInput.length));
       password = password + userInput[index]
   }
 
-  return password
+  return password;
 }
 
 // Add event listener to generate button
@@ -99,3 +82,13 @@ generateBtn.addEventListener("click", writePassword);
 // THEN a password is generated that matches the selected criteria
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
+
+
+  // characters.alhpa = false
+  // characters.num = false
+  // characters.symbol = false
+
+  // while (!characters.alhpa && !characters.num && !characters.symbol) {
+  //   characters.alhpa = confirm("Click OK to confirm upper and lower characters");
+  //   characters.num = confirm("Click OK to confirm numeric characters");
+  //   characters.symbol = confirm("Click OK to confirm special characters");
