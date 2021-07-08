@@ -28,20 +28,29 @@ function generatePassword() {
       characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"));
   }
   
-  function generatePrompt() {
-    if (characters.alhpa) {
-      userInput.push(characters.alhpa[Math.floor((Math.random() * 52) + 1)]);
+  var charactersAlhpaPrompt = confirm("Click OK to confirm upper and lower letters");
+  var charactersNumPrompt = confirm("Click OK to confirm numeric characters");
+  var charactersSymbolPrompt = confirm("Click OK to confirm special characters");
+ 
+  if (charactersAlhpaPrompt == true) {
+    userInput.push(characters.alhpa[Math.floor((Math.random() * 52) + 1)])
+  } else {
+    alert("Will not include upper or lower case letters!")
   }
 
-  if (characters.num) {
+  if (charactersNumPrompt) {
       userInput.push(characters.num[Math.floor((Math.random() * 10) + 1)])
+  } else {
+    alert("Will not include numbers!")
   }
 
-  if (characters.symbol) {
+  if (charactersSymbolPrompt) {
       userInput.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
+  } else {
+    alert("Will not include symbols!")
   }
 
-  }
+  
 
 
   userInput = userInput.join("").split("");
@@ -57,15 +66,6 @@ function generatePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-// Alpha
-// "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-// numbers
-// "0123456789"
-
-// special characters
-// " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
@@ -89,6 +89,5 @@ generateBtn.addEventListener("click", writePassword);
   // characters.symbol = false
 
   // while (!characters.alhpa && !characters.num && !characters.symbol) {
-  //   characters.alhpa = confirm("Click OK to confirm upper and lower characters");
-  //   characters.num = confirm("Click OK to confirm numeric characters");
-  //   characters.symbol = confirm("Click OK to confirm special characters");
+  //   
+  // }
