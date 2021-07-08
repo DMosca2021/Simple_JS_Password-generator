@@ -1,6 +1,6 @@
 // Assignment Code
 var characters = {
-  alhpa: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  alpha: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
   num: "0123456789",
   symbol: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
 };
@@ -28,12 +28,12 @@ function generatePassword() {
       characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"));
   }
   
-  var charactersAlhpaPrompt = confirm("Click OK to confirm upper and lower letters");
+  var charactersAlphaPrompt = confirm("Click OK to confirm upper and lower letters");
   var charactersNumPrompt = confirm("Click OK to confirm numeric characters");
   var charactersSymbolPrompt = confirm("Click OK to confirm special characters");
  
-  if (charactersAlhpaPrompt == true) {
-    userInput.push(characters.alhpa[Math.floor((Math.random() * 52) + 1)])
+  if (charactersAlphaPrompt == true) {
+    userInput.push(characters.alpha[Math.floor((Math.random() * 52) + 1)])
   } else {
     alert("Will not include upper or lower case letters!")
   }
