@@ -22,8 +22,18 @@ function writePassword() {
 // Function that creates the password based on user inputs
 
 function generatePassword() {
-  var characterLength = 0;
   var userInput = parseInt(prompt("Choose the length of your password between 8 & 128"));
+  
+  if (userInput < 8) {
+    alert("Must be greater than 8 characters!")
+    generatePassword()
+  } else if (userInput > 128) {
+    alert("Must be less than 128 characters!")
+    generatePassword()
+  } else if (!userInput) {
+    return;
+  }
+
   var upperChoice = confirm("Include upper case letters?");
   var lowerChoice = confirm("Include lower case letters?");
   var numberChoice = confirm("Include numbers?");
