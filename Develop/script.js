@@ -1,4 +1,6 @@
 // Assignment Code
+var body = document.body;
+
 var characters = {
   upper: "abcdefghijklmnopqrstuvwxyz",
   lower: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -81,6 +83,13 @@ function generatePassword() {
 
   return password;
 }
+
+// console.log(document.body.getElementsByClassName("card-footer"));
+
+var copyBtn = document.createElement("button");
+copyBtn.textContent = "Copy Password";
+document.body.getElementsByClassName("card-footer").appendChild(copyBtn)
+copyBtn.setAttribute("style", " border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
 
 function copyPassword() {
     var copyText = document.getElementById("#password");
