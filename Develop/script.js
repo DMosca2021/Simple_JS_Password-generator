@@ -2,12 +2,13 @@
 var characters = {
   upper: "abcdefghijklmnopqrstuvwxyz",
   lower: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  num: "0123456789",
+  num: "012345679",
   symbol: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
 };
-var userInput = [];
+var userChoices = [];
 var password = "";
 var generateBtn = document.querySelector("#generate");
+var copyToClip = document.querySelector("#password")
 
 // Write password to the #password input
 
@@ -34,45 +35,65 @@ function generatePassword() {
     return;
   }
 
+  console.log(userInput)
+
   var upperChoice = confirm("Include upper case letters?");
   var lowerChoice = confirm("Include lower case letters?");
   var numberChoice = confirm("Include numbers?");
-  var symbolCoice = confirm("Include special characters?");
+  var symbolChoice = confirm("Include special characters?");
  
-  if (charactersAlphaPrompt == true) {
-    userInput.push(characters.alpha[Math.floor((Math.random() * 52) + 1)])
+  if (upperChoice === true) {
+    userChoices.push(characters.upper[Math.floor((Math.random() * 26) + 1)])
+    console.log(upperChoice)
   } else {
-    alert("Will not include upper or lower case letters!")
+    alert("Will not include upper case letters!")
   }
 
-  if (charactersNumPrompt) {
-      userInput.push(characters.num[Math.floor((Math.random() * 10) + 1)])
+  if (lowerChoice === true) {
+      userChoices.push(characters.lower[Math.floor((Math.random() * 26) + 1)])
+      console.log(lowerChoice)
+  } else {
+    alert("Will not include lower case letters!")
+  }
+
+  if (numberChoice === true) {
+      userChoices.push(parseInt(characters.num[Math.floor((Math.random() * 10) + 1)]))
+      console.log(numberChoice)
   } else {
     alert("Will not include numbers!")
   }
 
-  if (charactersSymbolPrompt) {
-      userInput.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
+  if (symbolChoice === true) {
+    userChoices.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
+    console.log(symbolChoice)
   } else {
-    alert("Will not include symbols!")
+  alert("Will not include symbols!")
   }
 
-  
-
-
-  userInput = userInput.join("").split("");
-
-  for (var i = 0; i < characterLength; i++) {
-      var index = (Math.floor(Math.random() * userInput.length));
-      password = password + userInput[index]
+  console.log(userChoices)
+ 
+  for (var i = 0; i < userInput; i++) {
+      var random = Math.floor(Math.random() * Math.floor(userChoices.length));
+      password += userChoices[random];
   }
+
+  console.log(password)
 
   return password;
 }
 
+function copyPassword() {
+    var copyText = document.getElementById("#password");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+  
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
+copyToClip.addEventListener("click", copyPassword);
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
@@ -89,12 +110,3 @@ generateBtn.addEventListener("click", writePassword);
 // THEN a password is generated that matches the selected criteria
 // WHEN the password is generated
 // THEN the password is either displayed in an alert or written to the page
-
-
-  // characters.alhpa = false
-  // characters.num = false
-  // characters.symbol = false
-
-  // while (!characters.alhpa && !characters.num && !characters.symbol) {
-  //   
-  // }
