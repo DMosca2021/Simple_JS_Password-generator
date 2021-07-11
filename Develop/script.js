@@ -1,15 +1,12 @@
 // Assignment Code
 var characters = {
-  alpha: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  upper: "abcdefghijklmnopqrstuvwxyz",
+  lower: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   num: "0123456789",
   symbol: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
 };
-
-
 var userInput = [];
-
 var password = "";
-
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -22,15 +19,15 @@ function writePassword() {
 
 }
 
+// Function that creates the password based on user inputs
+
 function generatePassword() {
-  var characterLength = 0
-  while (characterLength < 8 || characterLength > 128) {
-      characterLength = parseInt(prompt("How many characters would you like your password to be? (8-128)"));
-  }
-  
-  var charactersAlphaPrompt = confirm("Click OK to confirm upper and lower letters");
-  var charactersNumPrompt = confirm("Click OK to confirm numeric characters");
-  var charactersSymbolPrompt = confirm("Click OK to confirm special characters");
+  var characterLength = 0;
+  var userInput = parseInt(prompt("Choose the length of your password between 8 & 128"));
+  var upperChoice = confirm("Include upper case letters?");
+  var lowerChoice = confirm("Include lower case letters?");
+  var numberChoice = confirm("Include numbers?");
+  var symbolCoice = confirm("Include special characters?");
  
   if (charactersAlphaPrompt == true) {
     userInput.push(characters.alpha[Math.floor((Math.random() * 52) + 1)])
