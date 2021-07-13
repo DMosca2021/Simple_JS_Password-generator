@@ -84,7 +84,8 @@ function generatePassword() {
   alert("Will not include symbols!")
   }
 
- 
+// Creating new password from created array 
+
   for (var i = 0; i < userInput; i++) {
     var random = Math.floor(Math.random() * userChoices.length);
     password += userChoices[random];
@@ -96,6 +97,21 @@ function generatePassword() {
   return password;
 }
 
+function clearPassword() {
+		var defaultText = password.Value;	
+    
+		//If field is empty put back original data. Works for Blur
+		if(current_value == "") {
+			myTextField.value = default_value;
+			return;
+		}
+
+		//If Field is not empty and Default value is equal to value empty the field
+		if(current_value == default_value) {
+			myTextField.value = '';
+			return false;
+		}
+}
 
 // console.log(document.body.getElementsByClassName("card-footer"));
 
