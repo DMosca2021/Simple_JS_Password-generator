@@ -60,37 +60,33 @@ function generatePassword() {
 // Creating new array to pull new password from
 
   if (upperChoice === true) {
-    userChoices.push(characters.upper[Math.floor((Math.random() * 26) + 1)])
+    userChoices = userChoices.concat(characters.upper)
     alert("Will include upper case letters!")
-    console.log(upperChoice)
   } else {
     alert("Will not include upper case letters!")
   }
 
   if (lowerChoice === true) {
-    userChoices.push(characters.lower[Math.floor((Math.random() * 26) + 1)])
-    console.log(lowerChoice)
+    userChoices = userChoices.concat(characters.lower)
   } else {
     alert("Will not include lower case letters!")
   }
 
   if (numberChoice === true) {
-    userChoices.push(parseInt(characters.num[Math.floor((Math.random() * 10) + 1)]))
-    console.log(numberChoice)
+    userChoices = userChoices.concat(characters.num)
   } else {
     alert("Will not include numbers!")
   }
 
   if (symbolChoice === true) {
-    userChoices.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
-    console.log(symbolChoice)
+    userChoices = userChoices.concat(characters.symbol)
   } else {
   alert("Will not include symbols!")
   }
 
  
   for (var i = 0; i < userInput; i++) {
-    var random = Math.floor(Math.random() * Math.floor(userChoices.length));
+    var random = Math.floor(Math.random() * userChoices.length);
     password += userChoices[random];
   }
 
