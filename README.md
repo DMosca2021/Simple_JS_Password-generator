@@ -23,7 +23,7 @@ Click on provided links:
 
 Once arriving to the password generator website, click the "Generate Password" button to start the generator. A series of prompts to determine the length and character type for the password will ensue. After confirmation of your choices the password will generate in the box ready for use. 
 
-![Screenshot](\Develop\assets\images\passwrdgen_scrnsht.png)
+![Screenshot](./Develop/assets/images/passwrdgen_scrnsht.png)
 
 ## Credits
 
