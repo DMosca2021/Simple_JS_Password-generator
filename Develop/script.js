@@ -116,7 +116,6 @@ function clearPassword() {
 // Attempt at making a copy button by appendChild() method.
 
 // var copyBtn = document.createElement("button");
-// var cardFooter = document.getElementsByClassName("card-footer")
 
 // document.cardFooter.append(copyBtn);
   
