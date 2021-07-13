@@ -18,7 +18,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  clearPassword();
+  // clearPassword(); // Clear password function, not working right now.
   passwordText.value = password;
 
 }
