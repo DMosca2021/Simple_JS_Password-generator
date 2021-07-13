@@ -18,7 +18,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  clearPassword();
   passwordText.value = password;
 
 }
@@ -68,18 +68,21 @@ function generatePassword() {
 
   if (lowerChoice === true) {
     userChoices = userChoices.concat(characters.lower)
+    alert("Will include lower case letters!")
   } else {
     alert("Will not include lower case letters!")
   }
 
   if (numberChoice === true) {
     userChoices = userChoices.concat(characters.num)
+    alert("Will include numbers!")
   } else {
     alert("Will not include numbers!")
   }
 
   if (symbolChoice === true) {
     userChoices = userChoices.concat(characters.symbol)
+    alert("Will include symbols!")
   } else {
   alert("Will not include symbols!")
   }
@@ -97,39 +100,35 @@ function generatePassword() {
   return password;
 }
 
-function clearPassword() {
-		var defaultText = password.Value;	
-    
-		//If field is empty put back original data. Works for Blur
-		if(current_value == "") {
-			myTextField.value = default_value;
-			return;
-		}
+// Function to clear text box for each new password generated.
 
-		//If Field is not empty and Default value is equal to value empty the field
-		if(current_value == default_value) {
-			myTextField.value = '';
-			return false;
-		}
+function clearPassword() {
+  var passwordText = document.querySelector("#password");
+	
+  if(passwordText.value == "") {
+		return
+	} else {
+      passwordText.value = "Your Secure Password"
+  }
 }
 
-// console.log(document.body.getElementsByClassName("card-footer"));
 
-  // var copyBtn = document.createElement("button");
-  // var cardFooter = document.getElementsByClassName("card-footer")
+// Attempt at making a copy button by appendChild() method.
 
-  // document.cardFooter.append(copyBtn);
+// var copyBtn = document.createElement("button");
+// var cardFooter = document.getElementsByClassName("card-footer")
+
+// document.cardFooter.append(copyBtn);
   
-  // copyBtn.textContent = "Copy Password";
-  // copyBtn.setAttribute("style", " border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
+// copyBtn.textContent = "Copy Password";
+// copyBtn.setAttribute("style", " border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
 
 // function copyPassword() {
 //     var copyText = document.getElementById("#password");
 //     copyText.select();
 //     copyText.setSelectionRange(0, 99999)
 //     document.execCommand("copy");
-//     alert("Copied the text: " + copyText.value);
-  
+//     alert("Copied the text: " + copyText.value);  
 // }
 // copyToClip.addEventListener("click", copyPassword);
 
@@ -138,18 +137,6 @@ function clearPassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-// GIVEN I need a new, secure password
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
+
+
+
