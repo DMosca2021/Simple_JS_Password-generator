@@ -2,15 +2,16 @@
 var body = document.body;
 
 var characters = {
-  upper: "abcdefghijklmnopqrstuvwxyz",
-  lower: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  num: "012345679",
-  symbol: "!#$%&'()*+,-./:;<=>?@[]^_`{|}~",
+  upper: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+  lower: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+  symbol: ['@', '%', '+', '\\', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'],
+  num: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
 };
+
 var userChoices = [];
 var password = "";
 var generateBtn = document.querySelector("#generate");
-var copyToClip = document.querySelector("#password")
+// var copyToClip = document.querySelector("#password")
 
 // Write password to the #password input
 
@@ -45,53 +46,53 @@ function generatePassword() {
   var numberChoice = confirm("Include numbers?");
   var symbolChoice = confirm("Include special characters?");
 
+  console.log(upperChoice, lowerChoice, numberChoice, symbolChoice)
 
-  if (upperChoice && lowerChoice && numberChoice && symbolChoice === true) {
-    userChoices.push(characters[Math.floor((Math.random() * 92) + 1)])
-    alert("Will include all characters.")
-  } else if (upperChoice && lowerChoice && numberChoice && symbolChoice === false) {
-    alert("Must include at least 1 character type!")
-    generatePassword()
-    return;
+
+  // ------- Trying to make it redo confirms if no character types are chosen. ------//
+
+  // if (upperChoice && lowerChoice && numberChoice && symbolChoice == false) {
+  //   alert("No choice made!")
+  //   generatePassword()
+  // };
+
+
+// Creating new array to pull new password from
+
+  if (upperChoice === true) {
+    userChoices.push(characters.upper[Math.floor((Math.random() * 26) + 1)])
+    alert("Will include upper case letters!")
+    console.log(upperChoice)
+  } else {
+    alert("Will not include upper case letters!")
   }
 
+  if (lowerChoice === true) {
+    userChoices.push(characters.lower[Math.floor((Math.random() * 26) + 1)])
+    console.log(lowerChoice)
+  } else {
+    alert("Will not include lower case letters!")
+  }
 
+  if (numberChoice === true) {
+    userChoices.push(parseInt(characters.num[Math.floor((Math.random() * 10) + 1)]))
+    console.log(numberChoice)
+  } else {
+    alert("Will not include numbers!")
+  }
 
-  // if (upperChoice === true) {
-  //   userChoices.push(characters.upper[Math.floor((Math.random() * 26) + 1)])
-  //   alert("Will include upper case letters!")
-  //   console.log(upperChoice)
-  // } else {
-  //   alert("Will not include upper case letters!")
-  // }
+  if (symbolChoice === true) {
+    userChoices.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
+    console.log(symbolChoice)
+  } else {
+  alert("Will not include symbols!")
+  }
 
-  // if (lowerChoice === true) {
-  //   userChoices.push(characters.lower[Math.floor((Math.random() * 26) + 1)])
-  //   console.log(lowerChoice)
-  // } else {
-  //   alert("Will not include lower case letters!")
-  // }
-
-  // if (numberChoice === true) {
-  //   userChoices.push(parseInt(characters.num[Math.floor((Math.random() * 10) + 1)]))
-  //   console.log(numberChoice)
-  // } else {
-  //   alert("Will not include numbers!")
-  // }
-
-  // if (symbolChoice === true) {
-  //   userChoices.push(characters.symbol[Math.floor((Math.random() * 30) + 1)])
-  //   console.log(symbolChoice)
-  // } else {
-  // alert("Will not include symbols!")
-  // }
-
-  console.log(userChoices) //checking result of user choices 
  
-  // for (var i = 0; i < userInput; i++) {
-  //   var random = Math.floor(Math.random() * Math.floor(userChoices.length));
-  //   password += userChoices[random];
-  // }
+  for (var i = 0; i < userInput; i++) {
+    var random = Math.floor(Math.random() * Math.floor(userChoices.length));
+    password += userChoices[random];
+  }
 
 
   console.log(password) //checking result of password with chosen combo
@@ -105,7 +106,7 @@ function generatePassword() {
   // var copyBtn = document.createElement("button");
   // var cardFooter = document.getElementsByClassName("card-footer")
 
-  // document.cardFooter.appendChild(copyBtn);
+  // document.cardFooter.append(copyBtn);
   
   // copyBtn.textContent = "Copy Password";
   // copyBtn.setAttribute("style", " border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
@@ -118,10 +119,12 @@ function generatePassword() {
 //     alert("Copied the text: " + copyText.value);
   
 // }
+// copyToClip.addEventListener("click", copyPassword);
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// copyToClip.addEventListener("click", copyPassword);
+
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
