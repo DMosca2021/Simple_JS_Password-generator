@@ -113,11 +113,11 @@ function clearPassword() {
 }
 
 
-// Attempt at making a copy button by appendChild() method.
+// Attempt at making a copy button by appendChild() method. Do I need a query selector here?
 
-// let copyBtn = document.createElement("button");
+let copyBtn = document.createElement("button");
 
-// document.cardFooter.append(copyBtn);
+// document.getElementsByClassName("card-footer").appendChild(copyBtn); ---Error---
   
 // copyBtn.textContent = "Copy Password";
 // copyBtn.setAttribute("style", " border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
