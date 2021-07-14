@@ -53,7 +53,7 @@ function generatePassword() {
 
   // if (upperChoice && lowerChoice && numberChoice && symbolChoice === false) {
   //   alert("No choice made!")
-  //   generatePassword()
+  //   return generatePassword()
   // };
 
 
