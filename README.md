@@ -27,4 +27,5 @@ Once arriving to the password generator website, click the "Generate Password" b
 
 ## Credits
 
-Credit for this project goes to my instructor, teachers assistant, and fellow students in the DUbootcamp who provided the information and resources I needed to complete this task.
+Credit for this project goes to my instructor, teacher's assistants, and fellow students in the DUbootcamp who provided the information and resources I needed to complete this task.
+
