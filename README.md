@@ -17,7 +17,7 @@ The goal of this homework assignment was to create a password generator. The gen
 ## To access the password generator
 
 Click on provided links:
-- [Deployed URL]()
+- [Deployed URL](https://dmosca2021.github.io/dm_hmk_wk3_pwgen/)
 - [Repo URL](https://github.com/DMosca2021/dm_hmk_wk3_pwgen)
 
 ## How to use the password generator
