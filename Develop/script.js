@@ -11,7 +11,7 @@ let characters = {
 let userChoices = [];
 let password = "";
 let generateBtn = document.querySelector("#generate");
-let copyToClip = document.querySelector("#password")
+let copyToClip = document.querySelector("#password");
 
 // Attempt at making a copy button by appendChild() method. Lines 18-39
 

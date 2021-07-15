@@ -2,6 +2,7 @@
 
 ## Description
 
+The goal of this homework assignment was to create a password generator. The generator operates after clicking a button that creates a randomly generated password to meet a criteria input by the user. Creating the generator tested my knowledge of JavaScript functions, methods, and traversing the DOM. This assignment also allowed me to experiment with manipulating the HTML using JavaScript.
 
 ## Tasks Completed
 
@@ -17,7 +18,7 @@
 
 Click on provided links:
 - [Deployed URL]()
-- [Repo URL]()
+- [Repo URL](https://github.com/DMosca2021/dm_hmk_wk3_pwgen)
 
 ## How to use the password generator
 
@@ -29,3 +30,6 @@ Once arriving to the password generator website, click the "Generate Password" b
 
 Credit for this project goes to my instructor, teacher's assistants, and fellow students in the DUbootcamp who provided the information and resources I needed to complete this task.
 
+- [W3 Schools](https://www.w3schools.com/js/default.asp)
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+- [Google](https://www.google.com/)
