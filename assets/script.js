@@ -13,7 +13,7 @@ let password = "";
 let generateBtn = document.querySelector("#generate");
 
 
-// Attempt at making a copy button by appendChild() method. Lines 18-39
+// Attempt at making a copy button by appendChild() method. 
 
 let copyToClip = document.querySelector("#password");
 
@@ -27,19 +27,15 @@ function createCpyBtn() {
   copyBtn.setAttribute("style", "border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
   // Making the copy password function
   function copyPassword() {
-    let copyText = document.getElementById("#password");
-    copyText.value();
+    let copyText = document.querySelector("#password");
     copyText.setSelectionRange(0, 99999)
     document.execCommand("copy");
     alert("Copied the text: " + copyText.value);  
   }
   copyToClip.addEventListener("click", copyPassword);
-  console.log(copyBtn); //Shows in console log but does not show on page.
+  copyBtn.addEventListener("click", copyPassword);
+  console.log(copyPassword); // Checking what was copied
 };
-
-
-
- 
 
 createCpyBtn()
 
