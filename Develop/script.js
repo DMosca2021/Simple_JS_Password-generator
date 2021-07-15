@@ -11,28 +11,31 @@ let characters = {
 let userChoices = [];
 let password = "";
 let generateBtn = document.querySelector("#generate");
-// let copyToClip = document.querySelector("#password")
+let copyToClip = document.querySelector("#password")
 
-// cardFooter.appendChild(copyBtn);
+// Attempt at making a copy button by appendChild() method. Lines 18-39
 
+// Creating the copy button
 function createCpyBtn() { 
   let copyBtn = document.createElement("button");
   let cardFooter = document.createElement("card-footer");
   copyBtn.appendChild(document.createTextNode("Click Me!"));
   cardFooter.appendChild(copyBtn);
-  console.log(copyBtn);
+  copyBtn.textContent = "Copy Password";
+  // copyBtn.setAttribute("style", "border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
+  // Making the copy password function
+  function copyPassword() {
+    let copyText = document.getElementById("#password");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);  
+}
+  copyToClip.addEventListener("click", copyPassword);
+  console.log(copyBtn); //Shows in console log but does not show on page. 
 };
 
 createCpyBtn()
-
-
-
-
-
-
-
-
-
 
 // Write password to the #password input
 
@@ -61,7 +64,6 @@ function generatePassword() {
 
   console.log(userInput)  //checking length of password
 
-  
   let upperChoice = confirm("Include upper case letters?");
   let lowerChoice = confirm("Include lower case letters?");
   let numberChoice = confirm("Include numbers?");
@@ -69,14 +71,12 @@ function generatePassword() {
 
   console.log(upperChoice, lowerChoice, numberChoice, symbolChoice)
 
-
   // ------- Trying to make it redo confirms if no character types are chosen. ------//
 
   // if (upperChoice && lowerChoice && numberChoice && symbolChoice === false) {
   //   alert("No choice made!")
   //   return generatePassword()
   // };
-
 
 // Creating new array to pull new password from
 
@@ -115,27 +115,10 @@ function generatePassword() {
     password += userChoices[random];
   }
 
-
   console.log(password) //checking result of password with chosen combo
 
   return password;
 }
-
-// Attempt at making a copy button by appendChild() method. Do I need a query selector here?
-
-
-// copyBtn.textContent = "Copy Password";
-// copyBtn.setAttribute("style", " border: none; background-color: hsl(360, 91%, 36%); border-radius: 25px; box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px; color: hsl(0, 0%, 100%); display: inline-block; font-size: 22px; line-height: 22px; margin: 16px 16px 16px 20px; padding: 14px 34px; text-align: center; cursor: pointer;")
-
-// function copyPassword() {
-//     let copyText = document.getElementById("#password");
-//     copyText.select();
-//     copyText.setSelectionRange(0, 99999)
-//     document.execCommand("copy");
-//     alert("Copied the text: " + copyText.value);  
-// }
-// copyToClip.addEventListener("click", copyPassword);
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
