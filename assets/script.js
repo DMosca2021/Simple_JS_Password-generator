@@ -28,7 +28,7 @@ function createCpyBtn() {
   // Making the copy password function
   function copyPassword() {
     let copyText = document.querySelector("#password");
-    copyText.setSelectionRange(0, 99999)
+    copyText.select();
     document.execCommand("copy");
     alert("Copied the text: " + copyText.value);  
   }
